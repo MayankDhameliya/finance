@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Symbol</th>
+                            <th scope="col">Shares</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Transacted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for transation in history_table %}
+                            <tr>
+                                <td scope="row">{{ transation.stock_symbol }}</td>
+                                <td>{{ transation.shares }}</td>
+                                <td>{{ transation.price | usd }}</td>
+                                <td>{{ transation.time }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+{% endblock %}
